@@ -18,16 +18,19 @@ function convertToRoman(num) {
     if (num<0 || num>100000) {
 		return "enter valid number";
 	}
-    
 	let result = "";
-    
     for (let key in obj) {
         let [romanSymbol, value] = obj[key];
-        while (num >= value) {
-            result += romanSymbol;
-            num -= value;
+        while (num>=value) {
+            result+=romanSymbol;
+            num-=value;
         }
     }
     
     return result;
+}
+
+function convertAndDisplay() {
+    let num = document.getElementById("numberInput").value;
+    document.getElementById("result").textContent = convertToRoman(parseInt(num));
 }
